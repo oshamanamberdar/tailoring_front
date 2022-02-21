@@ -1,0 +1,43 @@
+<div class="ui-bg-cover ui-bg-overlay-container text-white " style="background:#00BFFF; ">
+  <div class="ui-bg-overlay bg-dark opacity-50"></div>
+  <div class="container py-5">
+    <div >
+      <button nbButton  status="success" size="medium" (click)="routeToAddOrder(customerData.id)" >Place Order</button>
+    </div>
+    <div class="media col-md-10 col-lg-8 col-xl-7 p-0 my-4 mx-auto " >
+      <img  src="https://bootdey.com/img/Content/avatar/avatar1.png" alt class="d-block ui-w-100 rounded-circle">
+      <div class="media-body ml-5">
+        <h4 class="font-weight-bold mb-4 " >{{customerData.name}}</h4>
+        <hr>
+        <div>Email: {{customerData.email}}</div>
+        <div>Phone: {{customerData.phone}}</div>
+        <div>Lives in:  {{customerData.city}}, &#160;{{customerData.state}}, &#160;{{customerData.country}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nb-card status="info">
+  <nb-card-header> Orders</nb-card-header>
+  <nb-card-body>
+    <table  class="table table-bordered table-responsive-md table-sm sb-small text-center tab"  style=" width: 100%">
+      <thead>
+      <tr class="sb-bg-dark text-white">
+        <th>S.No</th>
+        <th>Order Date</th>
+        <th>Trial Date</th>
+        <th>Delivery Date</th>
+        <th>Items</th>
+        <th>Quantity</th>
+        <th>Total Amount</th>
+        <th>Advance Amount</th>
+        <th>Balance Amount</th>
+      </tr>
+      </thead>
+    </table>
+  </nb-card-body>
+</nb-card>
+
+
+<app-spinner *ngIf="spinner"></app-spinner>
+<router-outlet></router-outlet>

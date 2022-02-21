@@ -1,0 +1,95 @@
+<nb-card status="success">
+  <nb-card-header>Place Order</nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="orderForm" (click)="onSubmit()" >
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Order Date</label>
+            <input class="form-control" formControlName="orderDate"  id="orderDate" type="date">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Trial Date</label>
+            <input class="form-control" formControlName="trialDate"  id="trialDate" type="date">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Delivery Date</label>
+            <input class="form-control" formControlName="deliveryDate" placeholder="Delivery Date" id="deliveryDate" type="date">
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div *ngFor="let items of orderItems.controls; let i = index" formArrayName="items">
+        <div [formGroupName]="i">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Item</label>
+                <input class="form-control" placeholder="Item" formControlName="item"  id="item" type="text">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Quantity</label>
+                <input class="form-control" placeholder="quantity" formControlName="quantity"  id="quantity" type="number">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1">
+            <hr>
+            <button (click)="removeItem(i)" nbButton status="warning" size="tiny">Delete</button>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <button nbButton status="basic" size="small" (click)="addItem()" >Add Item</button>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Total Amount</label>
+            <input class="form-control" formControlName="totalAmount" placeholder="Total Amount"  id="totalAmount" type="number">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Advance Amount</label>
+            <input class="form-control" formControlName="advanceAmount" placeholder="Advance Amount" id="advanceAmount" type="number">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Balance Amount</label>
+            <input class="form-control" formControlName="balanceAmount" [ngModel]="balanceAmount" placeholder="Balance Amount"  id="balanceAmount" type="number" readonly>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>status</label>
+            <input class="form-control" formControlName="status" placeholder="Balance Amount"  id="status" type="text" >
+          </div>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+    <div>
+      <span>
+        <button nbButton status="success" size="medium" (click)="saveOrder()" >Save</button>
+      </span>
+      <span>
+        &#160;<button nbButton status="danger" size="medium" (click)="routeToProfile(this.customerId)">Cancel</button>
+      </span>
+    </div>
+
+  </nb-card-footer>
+</nb-card>

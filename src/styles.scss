@@ -1,1 +1,217 @@
+@use 'themes' as *;
+
+@use '@nebular/theme/styles/globals' as *;
+
+@include nb-install() {
+  @include nb-theme-global();
+};
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.app-container {
+
+  width: 100%;
+  height: 100%;
+
+
+}
+.pointer {
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 200px;
+
+
+}
+nav {
+  display: block;
+}
+nav ul {
+  float: right;
+}
+nav ul li {
+  display: inline-block;
+}
+@media screen and (max-width: 768px) {
+  nav {
+    display: flex;
+    position: fixed;
+    z-index: 999;
+    width: 73vw;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    left: -100vw;
+    float: none;
+    transition: .25s ease-in-out;
+  }
+  nav ul {
+    float: none;
+    width: 100%;
+  }
+  nav ul li {
+    display: block;
+  }
+  nav.opened {
+    left: 0;
+  }
+}
+.main-header {
+  display: grid;
+}
+.nav-item-1,
+.nav-item-2,
+.nav-item-3,
+.nav-item-4,
+.nav-item-5,
+.nav-item-6,
+.nav-item-7,
+.nav-item-8,
+.nav-item-9,
+.nav-item-10,
+.nav-item-11 {
+  display: none;
+}
+.main-nav {
+  /* some grid relevant styles */
+}
+.secondary-nav {
+  display: none;
+}
+.show-secondary .secondary-nav {
+  display: flex;
+}
+.secondary-nav .nav-item-1,
+.secondary-nav .nav-item-2,
+.secondary-nav .nav-item-3,
+.secondary-nav .nav-item-4,
+.secondary-nav .nav-item-5,
+.secondary-nav .nav-item-6,
+.secondary-nav .nav-item-7,
+.secondary-nav .nav-item-8,
+.secondary-nav .nav-item-9,
+.secondary-nav .nav-item-10,
+.secondary-nav .nav-item-11 {
+  display: flex;
+}
+@media (min-width: 800px) {
+  .nav-item-1,
+  .nav-item-2,
+  .nav-item-3,
+  .nav-item-4,
+  .nav-item-5 {
+    display: flex;
+  }
+  .main-nav {
+    /* some grid relevant styles */
+  }
+  .show-secondary .secondary-nav {
+    display: block;
+  }
+  .secondary-nav .nav-item-1,
+  .secondary-nav .nav-item-2,
+  .secondary-nav .nav-item-3,
+  .secondary-nav .nav-item-4,
+  .secondary-nav .nav-item-5 {
+    display: none;
+  }
+
+}
+@media (max-width: 767.98px) {
+  .table-responsive-md {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive-md > .table-bordered {
+    border: 0;
+  }
+}
+.sb-bg-dark {
+  background-color: #004286 !important;
+}
+.text-white {
+  color: #fff !important;
+}
+
+.text-right {
+  text-align: right;
+}
+.sb-small {
+  font-size: 100%;
+  font-weight: 500;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.alert div {
+  background-color: #fed3d3;
+  color: #820000;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+select {
+  width: 100%;
+  padding: .5rem;
+}
+.text-center{
+  text-align: center;
+}
+
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
