@@ -3,8 +3,8 @@ export class Order{
   orderDate: Date;
   deliveryDate: Date;
   trialDate: Date;
-  item: String;
-  quantity: String;
+  item: string;
+  quantity: string;
   totalAmount: number;
   advanceAmount: number;
   balanceAmount: number;

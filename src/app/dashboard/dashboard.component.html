@@ -2,24 +2,25 @@
   <mat-card-content>
     <div class="row">
       <div class="col-md-4">
-        <mat-card>
-          <mat-card-title >On Trial</mat-card-title>
+        <mat-card class="pointer" (click)="routeToTrial()">
+          <mat-card-title >On Trial&#160; <strong>{{trialNumber}}</strong></mat-card-title>
           <mat-card-content>
             <img src="assets/dashboard/trial.png" alt="trial" height="50" width="50">
           </mat-card-content>
+
         </mat-card>
       </div>
       <div class="col-md-4">
-        <mat-card>
-          <mat-card-title>For Delivery</mat-card-title>
+        <mat-card class="pointer" (click)="routeToDelivery()">
+          <mat-card-title>For Delivery &#160; <strong>{{deliveryNumber}}</strong></mat-card-title>
           <mat-card-content>
             <img src="assets/dashboard/deliver.png" alt="for delivery" height="50" width="50">
           </mat-card-content>
         </mat-card>
       </div>
       <div class="col-md-4">
-        <mat-card>
-          <mat-card-title>Alteration</mat-card-title>
+        <mat-card class="pointer" (click)="routeToAlteration()">
+          <mat-card-title>Alteration&#160; <strong>{{alterationNumber}}</strong></mat-card-title>
           <mat-card-content>
             <img src="assets/dashboard/alteration.png" alt="alteration" height="50" width="50">
           </mat-card-content>

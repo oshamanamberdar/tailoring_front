@@ -1,26 +1,26 @@
 <nb-layout>
 
-  <nb-layout-header subheader>
-
-    <button nbButton status="success" size="medium" (click)="toggle()"><nb-icon icon="menu"></nb-icon></button>
+  <nb-layout-header >
+    <button nbButton status="success" size="medium" (click)="toggle()">
+      <nb-icon icon="menu"></nb-icon>
+    </button>
   </nb-layout-header>
-
   <nb-sidebar>
-
-
-
-          <button nbButton href="#" routerLink="dashboard" routerLinkActive="active"><nb-icon icon="home"></nb-icon> &#160; Dashboard</button>
-<hr>
-
-          <button nbButton   routerLink="customer" routerLinkActive="active"><nb-icon icon="people"></nb-icon> &#160;Customer</button>
-
-<hr>
-    <button nbButton   routerLink="supplier" routerLinkActive="active"><nb-icon icon="square-outline"></nb-icon> &#160;Supplier</button>
-
-<hr>
-
+    <img src="assets/order/companyLogo.jpg" width="70" height="70" style="margin-left: 50px;" alt="company logo" />
+    <hr>
+    <button nbButton href="#" routerLink="dashboard" routerLinkActive="active">
+      <nb-icon icon="home"></nb-icon> &#160; Dashboard
+    </button>
+    <hr>
+    <button nbButton routerLink="customer" routerLinkActive="active">
+      <nb-icon icon="people"></nb-icon> &#160;Customer
+    </button>
+    <hr>
+    <button nbButton routerLink="supplier" routerLinkActive="active">
+      <nb-icon icon="square-outline"></nb-icon> &#160;Supplier
+    </button>
+    <hr>
   </nb-sidebar>
-
   <nb-layout-column class="colored-column-basic">
     <router-outlet></router-outlet>
   </nb-layout-column>

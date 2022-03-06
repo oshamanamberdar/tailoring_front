@@ -1,0 +1,183 @@
+<nb-card  status="success">
+  <nb-card-header><h1>Add Measurement</h1></nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="addMeasurementForm" (ngSubmit)="onSubmit()" >
+      <nb-card status="control">
+        <nb-card-header><h2 style="color:darkblue">Coat</h2></nb-card-header>
+        <nb-card-body>
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Length</label>
+                <input class="form-control" formControlName="coatLength"  id="coatLength" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Chest</label>
+                <input class="form-control" formControlName="coatChest"  id="coatChest" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Waist</label>
+                <input class="form-control" formControlName="coatWaist" placeholder="" id="coatWaist" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Hip</label>
+                <input class="form-control" formControlName="coatHip" placeholder="" id="coatHip" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Shoulder</label>
+                <input class="form-control" formControlName="coatShoulder" placeholder="" id="coatShoulder" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>S.Length</label>
+                <input class="form-control" formControlName="coatSleeveLength" placeholder="" id="coatSleeveLength" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>H.Back</label>
+                <input class="form-control" formControlName="coatHalfBack" placeholder="" id="coatHalfBack" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Neck</label>
+                <input class="form-control" formControlName="coatNeck" placeholder="" id="coatNeck" type="number">
+              </div>
+            </div>
+
+          </div>
+        </nb-card-body>
+      </nb-card>
+
+      <nb-card status="control">
+        <nb-card-header>
+          <h1 style="color: darkblue">Pant</h1>
+        </nb-card-header>
+        <nb-card-body>
+          <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Length</label>
+              <input class="form-control" formControlName="pantLength" placeholder="" id="pantLength" type="number">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Waist</label>
+              <input class="form-control" formControlName="pantWaist" placeholder="" id="pantWaist" type="number">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Hip</label>
+              <input class="form-control" formControlName="pantHip" placeholder="" id="pantHip" type="number">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Thigh</label>
+              <input class="form-control" formControlName="pantThigh" placeholder="" id="pantThigh" type="number">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Knee</label>
+              <input class="form-control" formControlName="pantKnee" placeholder="" id="pantKnee" type="number">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Bottom</label>
+              <input class="form-control" formControlName="pantBottom" placeholder="" id="pantBottom" type="number">
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Crouch</label>
+              <input class="form-control" formControlName="pantCrouch" placeholder="" id="pantCrouch" type="number">
+            </div>
+          </div>
+          </div>
+
+
+        </nb-card-body>
+
+      </nb-card>
+
+      <nb-card status="control">
+        <nb-card-header><h1 style="color:darkblue">Shirt</h1></nb-card-header>
+        <nb-card-body>
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Length</label>
+                <input class="form-control" formControlName="shirtLength" placeholder="" id="shirtLength" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Chest</label>
+                <input class="form-control" formControlName="shirtChest" placeholder="" id="shirtChest" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Waist</label>
+                <input class="form-control" formControlName="shirtWaist" placeholder="" id="shirtWaist" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Hip</label>
+                <input class="form-control" formControlName="shirtHip" placeholder="" id="shirtHip" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Shoulder</label>
+                <input class="form-control" formControlName="shirtShoulder" placeholder="" id="shirtShoulder" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>S.Length</label>
+                <input class="form-control" formControlName="shirtSleeveLength" placeholder="" id="shirtSleeveLength" type="number">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>Neck</label>
+                <input class="form-control" formControlName="shirtNeck" placeholder="" id="shirtNeck" type="number">
+              </div>
+            </div>
+          </div>
+
+        </nb-card-body>
+      </nb-card>
+
+
+      <div>
+      <span>
+        <button nbButton status="success" size="medium" (click)="saveMeasurement()" >Save</button>
+      </span>
+        <span>
+        &#160;<button nbButton status="danger" size="medium" (click)="routeToProfile(this.customerId)">Cancel</button>
+      </span>
+      </div>
+    </form>
+  </nb-card-body>
+  <nb-card-footer>
+
+
+  </nb-card-footer>
+</nb-card>

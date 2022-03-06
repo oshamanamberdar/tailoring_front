@@ -7,6 +7,7 @@
           <div class="form-group">
             <label>Order Date</label>
             <input class="form-control" formControlName="orderDate"  id="orderDate" type="date">
+            <h2 *ngIf="orderFormControl.orderDate.invalid && orderFormControl.orderDate.touched" class="text-danger" >*Order Date is Required</h2>
           </div>
         </div>
         <div class="col-md-4">
@@ -57,13 +58,13 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>Total Amount</label>
-            <input class="form-control" formControlName="totalAmount" placeholder="Total Amount"  id="totalAmount" type="number">
+            <input class="form-control" (input)="calculateTotalBalance()" formControlName="totalAmount" placeholder="Total Amount"  id="totalAmount" type="number">
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label>Advance Amount</label>
-            <input class="form-control" formControlName="advanceAmount" placeholder="Advance Amount" id="advanceAmount" type="number">
+            <input class="form-control" (input)="calculateTotalBalance()" formControlName="advanceAmount" placeholder="Advance Amount" id="advanceAmount" type="number">
           </div>
         </div>
         <div class="col-md-4">
@@ -75,7 +76,11 @@
         <div class="col-md-4">
           <div class="form-group">
             <label>status</label>
-            <input class="form-control" formControlName="status" placeholder="Balance Amount"  id="status" type="text" >
+            <select class="form-control" formControlName="status"  id="status"  >
+              <option>On Trial</option>
+              <option>For Delivery</option>
+              <option>Alteration</option>
+            </select>
           </div>
         </div>
       </div>

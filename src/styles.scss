@@ -215,3 +215,14 @@ section {
   justify-content: center;
   width: 120px;
 }
+.form-control.ng-touched.ng-invalid {
+  border:1px solid red;
+}
+.form-control.ng-touched.ng-valid {
+  border:1px solid green;
+}
+
+
+
+
+

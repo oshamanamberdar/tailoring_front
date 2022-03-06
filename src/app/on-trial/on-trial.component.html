@@ -1,0 +1,30 @@
+<nb-card status="info">
+  <nb-card-header>On Trial </nb-card-header>
+    <nb-card-body>
+      <table class="table table-bordered table-responsive-md table-sm sb-small text-center tab"  style=" width: 100%">
+        <thead class="sb-bg-dark text-white">
+        <tr>
+          <th scope="col">S. No</th>
+          <th scope="col">order Date</th>
+          <th scope="col">Trial Date</th>
+          <th scope="col">Delivery Date</th>
+          <th scope="col">Total Amount</th>
+          <th scope="col">Advance Amount</th>
+          <th scope="col">Balance Amount</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let data of onTrial; let i = index">
+        <tr class="text-white pointer"  (click)="routeToOrderProfile(data.customer.id)">
+          <td>{{i+1}}</td>
+          <td>{{data.orderDate}}</td>
+          <td>{{data.trialDate}}</td>
+          <td>{{data.deliveryDate}}</td>
+          <td>{{data.totalAmount}}</td>
+          <td>{{data.advanceAmount}}</td>
+          <td>{{data.balanceAmount}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </nb-card-body>
+</nb-card>
+

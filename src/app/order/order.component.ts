@@ -24,6 +24,8 @@ export class OrderComponent implements OnInit {
   customerOrder:Order;
   orders: any;
   balanceAmount = 0;
+  advanceAmount = 0;
+  totalAmount =0;
 
 
   constructor( private orderService: OrderService,
@@ -40,8 +42,7 @@ export class OrderComponent implements OnInit {
       this.orderData = this.orderFormValue;
       this.formMaker();
     }
-    this.setItems(this.orderForm)
-
+    this.calculateTotalBalance();
   }
 
 
@@ -117,17 +118,22 @@ export class OrderComponent implements OnInit {
   routeToProfile(id: number) {
     this.route.navigate([`customer-profile/${id}`]);
   }
-  setItems(currentData: any) {
-    const controls = this.orderForm.get('items') as FormArray;
-    currentData.forEach((singleData: { item: any; quantity: any; }) => {
-      controls.push(
-        this.formBuilder.group({
-          item: [singleData.item],
-          quantity: [singleData.quantity]
-        })
-      )
+
+  calculateTotalBalance(){
+    this.orderForm.get('advanceAmount')?.valueChanges.subscribe(advanceAmount=>{
+      console.log(advanceAmount, 'val');
+      this.advanceAmount = advanceAmount;
+
+    this.orderForm.get('totalAmount')?.valueChanges.subscribe(totalAmount=>{
+      console.log(totalAmount, 'total amount')
+      this.totalAmount = totalAmount;
+      this.balanceAmount = this.totalAmount - this.advanceAmount;
+      console.log(this.balanceAmount, 'balance amoutn')
+    })
     })
   }
 
-
+  get orderFormControl() {
+    return this.orderForm.controls;
+  }
 }

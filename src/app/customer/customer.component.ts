@@ -5,6 +5,9 @@ import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {ObjectUtil} from "../../ObjectUtil";
+import {NotifierService} from "angular-notifier";
+import {NotificationsService} from "angular2-notifications";
+import {MeasurementService} from "../add-measurement/measurement-service/measurement.service";
 
 @Component({
   selector: 'app-customer',
@@ -21,12 +24,17 @@ export class CustomerComponent implements OnInit {
   submitted = false;
   @Input() formValue: Customer
 
+  private readonly notifier: NotifierService;
 
   constructor(private customerService: CustomerService,
               public activeModal: NgbActiveModal,
               private modalService: NgbModal,
               private formBuilder: FormBuilder,
-              public router: Router,) { }
+              public router: Router,
+              private  measurementService: MeasurementService,
+              notifierService: NotifierService) {
+              this.notifier = notifierService;
+  }
 
   ngOnInit(): void {
     this.formMaker();
@@ -50,11 +58,11 @@ export class CustomerComponent implements OnInit {
   formMaker() {
     this.customerForm = this.formBuilder.group({
       name: [undefined, Validators.required],
-      phone: [undefined, Validators.required,  Validators.minLength(10), Validators.maxLength(10)],
+      phone: [undefined, [Validators.required,  Validators.minLength(10), Validators.maxLength(10)]],
       email: [undefined, Validators.email],
       city: [undefined],
       state: [undefined],
-      country: [undefined, Validators.required]
+      country: [undefined]
     })
   }
 
@@ -71,10 +79,10 @@ export class CustomerComponent implements OnInit {
     return this.customerForm.controls;
   }
   deleteCustomer(id: number) {
-    this.modalService.dismissAll()
+
     this.customerService.deleteCustomerById(id).subscribe((response)=>{
       this.getCustomers();
-
+      this.modalService.dismissAll()
     })
   }
   saveCustomer() {
@@ -92,6 +100,9 @@ export class CustomerComponent implements OnInit {
     }
 
   }
+  get customerInfoControls() {
+    return this.customerForm.controls;
+  }
 
   open(content: any) {
     this.modalService.open(content);
@@ -103,4 +114,8 @@ export class CustomerComponent implements OnInit {
   routeToProfile(id: number) {
     this.router.navigate([`customer-profile/${id}`]);
   }
+  routeToUpdateCustomer(id: number) {
+    this.router.navigate([`customer-update/${id}`])
+  }
+
 }

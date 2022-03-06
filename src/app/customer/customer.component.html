@@ -1,3 +1,4 @@
+
 <mat-card>
   <mat-card-title style="color: coral">Customers</mat-card-title>
   <mat-card-content>
@@ -8,9 +9,10 @@
     <table class="table table-bordered table-responsive-md table-sm sb-small text-center tab"  style=" width: 100%">
       <thead>
       <tr class="sb-bg-dark text-white">
-        <th>ID</th>
+        <th>S.No</th>
         <th>Customer Name</th>
         <th>Phone</th>
+        <th>Bill Number</th>
         <th>Email</th>
         <th>City</th>
         <th>State</th>
@@ -18,22 +20,23 @@
         <th>Action</th>
       </tr>
       </thead>
-      <tbody>
-      <tr class="text-center" *ngFor="let customer of customers; let i=index">
-        <td class="pointer" (click)="routeToProfile(customer.id)">{{customer.id}}</td>
-        <td  class="pointer" (click)="routeToProfile(customer.id)">{{customer.name}}</td>
-        <td class="pointer" (click)="routeToProfile(customer.id)">{{customer.phone}}</td>
-        <td class="pointer" (click)="routeToProfile(customer.id)">{{customer.email}}</td>
-        <td class="pointer" (click)="routeToProfile(customer.id)">{{customer.city}}</td>
-        <td class="pointer" (click)="routeToProfile(customer.id)">{{customer.state}}</td>
-        <td class="pointer" (click)="routeToProfile(customer.id)">{{customer.country}}</td>
+      <tbody *ngFor="let customer of customers; let i=index">
+      <tr class="text-center pointer" (click)="routeToProfile(customer.id)" >
+        <td>{{i+1}}</td>
+        <td>{{customer.name}}</td>
+        <td>{{customer.phone}}</td>
+        <td>{{customer.id}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.city}}</td>
+        <td>{{customer.state}}</td>
+        <td>{{customer.country}}</td>
         <td>
           <button (click)="open(content)"  style="height: min-content; width: min-content; color: red" >
             <mat-icon>delete</mat-icon>
           </button>
           <ng-template #content let-c="close" let-d="dismiss">
             <div class="modal-header">
-              <h1 class="modal-title" id="modal-basic-title" style="color:red">I am being Lost </h1>
+              <h1 class="modal-title" id="modal-basic-title" style="color:red"><strong>I am being Lost </strong></h1>
               <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -59,7 +62,7 @@
 
 <ng-template #customerContent let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h1 class="modal-title" id="add-customer" style="color:red">Add Customer</h1>
+    <h1 class="modal-title" id="add-customer" style="color:darkblue">Add Customer</h1>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -68,28 +71,25 @@
     <form [formGroup]="customerForm" (click)="onSubmit()">
       <div class="row">
         <div class="col-md-6">
-          <div class="form-group">
             <label for="name">Name</label>
-            <div class="input-group">
+            <div class="form-group">
               <input id="name" class="form-control" placeholder="Name" formControlName="name"  type="text" required>
+                <div *ngIf="customerInfoControls.name.invalid && customerInfoControls.name.touched" class="text-danger">Name is Required</div>
             </div>
-          </div>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
             <label for="phone">Phone</label>
-            <div class="input-group">
+            <div class="form-group">
               <input id="phone" class="form-control" placeholder="Phone" formControlName="phone"  type="text" required>
+              <small *ngIf="customerInfoControls.phone.invalid && customerInfoControls.phone.touched" class="text-danger">Enter 10 digit number</small>
             </div>
-          </div>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
             <label for="email">Email</label>
-            <div class="input-group">
+            <div class="form-group">
               <input id="email" class="form-control" placeholder="Email" formControlName="email"  type="text">
+              <small *ngIf="customerInfoControls.email.invalid && customerInfoControls.email.touched" class="text-danger">invalid Email</small>
             </div>
-          </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
@@ -111,7 +111,7 @@
           <div class="form-group">
             <label for="country">Country</label>
             <div class="input-group">
-              <select id="country" class="form-control">
+              <select id="country" formControlName="country" class="form-control">
                 <option >select country</option>
                 <option value="AF">Afghanistan</option>
                 <option value="AX">Aland Islands</option>
@@ -378,3 +378,4 @@
 </ng-template>
 <app-spinner *ngIf="spinner"></app-spinner>
 <router-outlet></router-outlet>
+<notifier-container></notifier-container>
