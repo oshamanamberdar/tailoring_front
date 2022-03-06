@@ -1,0 +1,97 @@
+<nb-card status="info" id="print-section">
+  <nb-card-header><h1 style="text-align: center; font-size: 30px">Order</h1></nb-card-header>
+  <nb-card-body>
+    <img src="assets/order/companyLogo.jpg" height="120" width="120" alt="company Logo" />
+    <hr>
+    <div><strong>Email:</strong> info@brandmds.com</div>
+    <div><strong>phone:</strong> 01-5252280,+977-9851091293</div>
+    <div><strong>Address:</strong> chhaya complex thamel Ktm Nepal</div>
+
+    <h1 style="text-align: center">Bespoke Tailor</h1>
+    <div>Order Date: {{orderData?.orderDate}}</div>
+    <hr>
+    <nb-card status="control">
+      <nb-card-header>Customer Detail</nb-card-header>
+      <nb-card-body>
+        <div><b>Name:</b> {{orderData?.customer?.name}}</div>
+        <div><b>Phone:</b> {{orderData?.customer?.phone}}</div>
+        <div><b>Email:</b> {{orderData?.customer?.email}}</div>
+        <div><b>Address:</b> {{orderData?.customer?.city}} &nbsp;{{orderData?.customer?.state}} &nbsp; {{orderData?.customer?.country}}</div>
+      </nb-card-body>
+    </nb-card>
+    <hr>
+
+    <nb-card status="control">
+      <nb-card-header>Order Detail</nb-card-header>
+      <nb-card-body>
+        <div><b>Order Id :</b> {{orderData?.id}}</div>
+        <div><b>Total Amount :</b> {{orderData?.totalAmount}}</div>
+        <div><b>Advance Amount :</b> {{orderData?.advanceAmount}}</div>
+        <div><b>Balance Amount :</b> {{orderData?.balanceAmount}}</div>
+      </nb-card-body>
+    </nb-card>
+    <nb-card>
+      <nb-card-header>Customer Measurement</nb-card-header>
+      <nb-card-body>
+        <h1>Coat</h1>
+      <img  src="assets/order/coat.jpg" alt="coat" />
+        <hr>
+       <table class="table table-bordered table-responsive-md table-sm sb-small text-center tab"  style=" width: 100%">
+         <thead>
+         <tr class="sb-bg-dark text-white">
+           <th>Length</th>
+           <th>Chest</th>
+           <th>Waist</th>
+           <th>Hip</th>
+           <th>Shoulder</th>
+           <th>Sleeve Length</th>
+           <th>Half Back</th>
+           <th>Neck</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr *ngFor="let measurementData of measurementData" class="text-white">
+           <td>{{measurementData?.coatLength}}</td>
+           <td>{{measurementData?.coatChest}}</td>
+           <td>{{measurementData?.coatWaist}}</td>
+           <td>{{measurementData?.coatHip}}</td>
+           <td>{{measurementData?.coatShoulder}}</td>
+           <td>{{measurementData?.coatSleeveLength}}</td>
+           <td>{{measurementData?.coatHalfBack}}</td>
+           <td>{{measurementData?.coatNeck}}</td>
+         </tr>
+         </tbody>
+       </table>
+        <hr>
+        <h1>Pant</h1>
+        <img src="assets/order/pant.png" alt="pant image" />
+        <hr>
+        <table class="table table-bordered table-responsive-md table-sm sb-small text-center tab"  style=" width: 100%">
+          <thead>
+          <tr class="sb-bg-dark text-white">
+            <th>Length</th>
+            <th>Waist</th>
+            <th>Hip</th>
+            <th>Thigh</th>
+            <th>Knee</th>
+            <th>Bottom</th>
+            <th>Crouch</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let measurementData of measurementData" class="text-white">
+            <td>{{measurementData?.pantLength}}</td>
+            <td>{{measurementData?.pantWaist}}</td>
+            <td>{{measurementData?.pantHip}}</td>
+            <td>{{measurementData?.pantThigh}}</td>
+            <td>{{measurementData?.pantKnee}}</td>
+            <td>{{measurementData?.pantBottom}}</td>
+            <td>{{measurementData?.pantCrouch}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </nb-card-body>
+    </nb-card>
+    <button nbButton status="success" printSectionId="print-section" ngxPrint>print</button>
+  </nb-card-body>
+</nb-card>
